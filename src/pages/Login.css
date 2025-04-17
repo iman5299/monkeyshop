@@ -1,0 +1,120 @@
+body {
+    background-image: url('/src/assets/IMG_5057.JPG'); /* مسیر تصویر خود را وارد کنید */
+    background-size: cover; /* تصویر پس‌زمینه به اندازه صفحه کشیده می‌شود */
+    background-position: top; /* تصویر در مرکز صفحه قرار می‌گیرد */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* ارتفاع صفحه برابر با ارتفاع نمای کل صفحه باشد */
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-card {
+    width: 550px;
+    padding: 30px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05); /* خیلی شفاف */
+    box-shadow: 0 8px 32px 0 rgb(51, 51, 51);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: center;
+}
+
+
+.login-title {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333333;
+    text-align: left;
+
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+
+}
+
+.p-inputtext-lg {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1); /* شفاف‌تر */
+    border: 1px solid rgb(51, 51, 51);
+    color: #fff;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    margin-bottom: 15px;
+}
+.p-inputtext-lg::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+.p-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    background: rgba(0, 255, 12, 0.73);
+    color: rgb(255, 0, 0);
+    border: 1px solid rgb(51, 51, 51);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.p-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+.login-card * {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+.register-link {
+    margin-top: 1px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+}
+
+.register-anchor {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 5px;
+    transition: color 0.3s ease;
+}
+
+.register-anchor:hover {
+    color: #ffa500;
+}
+/* تغییر رنگ تب‌های انتخاب شده */
+.p-tabview .p-tabview-nav .p-tab.selected {
+    background-color: #ffd700 !important; /* رنگ زرد برای تب انتخاب شده */
+    color: #333 !important; /* رنگ متن به مشکی یا رنگ دلخواه شما */
+    border-color: #ffd700 !important; /* رنگ مرز تب انتخاب شده */
+}
+
+/* تغییر رنگ تب‌های غیر انتخاب شده */
+.p-tabview .p-tabview-nav .p-tab {
+    background-color: transparent !important;
+    color: #fff !important; /* رنگ متن غیر انتخاب شده */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important; /* خط مرزی برای تب‌های غیر انتخاب شده */
+}
+
+.p-tabview .p-tabpanel .p-tabview-nav .p-tab:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+}
