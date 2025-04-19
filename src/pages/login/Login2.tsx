@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './Register.css';
+import './Login2.css';
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Card } from "primereact/card";
@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { Dropdown } from "primereact/dropdown";
 
 
-const Register: React.FC = () => {
+const Login2: React.FC = () => {
     const [form, setForm] = useState({
         firstName: '',
         lastName: '',
@@ -42,18 +42,18 @@ const Register: React.FC = () => {
                             <div className="input-group">
                                 <label>Gender:</label>
 
-                                    <Dropdown
-                                        name="gender"
-                                        value={form.gender}
-                                        options={[
-                                            {label: 'Male', value: 'male'},
-                                            {label: 'Female', value: 'female'},
-                                            {label: 'Monkey', value: 'other'}
-                                        ]}
-                                        onChange={(e) => setForm({...form, gender: e.value})}
-                                        placeholder="Select a Gender"
-                                        className=" w-full"
-                                    />
+                                <Dropdown
+                                    name="gender"
+                                    value={form.gender}
+                                    options={[
+                                        {label: 'Male', value: 'male'},
+                                        {label: 'Female', value: 'female'},
+                                        {label: 'Monkey', value: 'other'}
+                                    ]}
+                                    onChange={(e) => setForm({...form, gender: e.value})}
+                                    placeholder="Select a Gender"
+                                    className="w-full"
+                                />
 
 
                             </div>
@@ -88,4 +88,4 @@ const Register: React.FC = () => {
     );
 };
 
-export default Register;
+export default Login2;

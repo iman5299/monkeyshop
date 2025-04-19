@@ -47,6 +47,12 @@ body {
     flex-direction: column;
     gap: 1rem;
 }
+.input-group {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333333;
+    text-align: left;
+}
 
 .input-group label {
     margin-bottom: 0.3rem;
@@ -59,9 +65,13 @@ body {
 .input-group input {
     width: 100%;
     height: 48px;
-    color: #333;
-    background: rgba(255, 255, 255, 0.25);;
+    font-size: 16px;
+    color: #333333;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    border: 1px solid rgb(51, 51, 51);
 }
+
 .p-button {
     width: 100%;
     height: 48px;
@@ -81,10 +91,13 @@ body {
 .input-group .p-dropdown {
     width: 100%;
     height: 48px;
-    background: rgba(255, 255, 255, 0.25);
     color: #333;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    border: 1px solid rgb(51, 51, 51);
 }
 .p-dropdown-label {
-    color: #333;
-    font-size: 1rem;
+    color: #000000;
+
+
 }

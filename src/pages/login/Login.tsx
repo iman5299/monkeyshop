@@ -1,27 +1,38 @@
-import React, { useState } from "react";
+import React, {useCallback, useContext, useState} from "react";
 import './Login.css'
-import { TabView, TabPanel } from "primereact/tabview";
-import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
-import { Card } from "primereact/card";
-import { motion } from "framer-motion";
-import "primereact/resources/themes/lara-light-cyan/theme.css";
-import "primereact/resources/primereact.min.css";
-import "primeicons/primeicons.css";
-import {User} from "../entities/User";
+import {TabPanel, TabView} from "primereact/tabview";
+import {InputText} from "primereact/inputtext";
+import {Button} from "primereact/button";
+import {Card} from "primereact/card";
+import {motion} from "framer-motion";
+import MonkeyItem from "../../components/monkey-item/MonkeyItem.tsx";
+import useMonkey from "../../hooks/monkey/useMonkey.ts";
+import {MenuContext} from "../../layouts/menu/MenuContext.tsx";
 
 const Login: React.FC = () => {
-    const [user, setUser] = useState<User>({ username: "", password: "" });
+    const [user, setUser] = useState<any>({username: "", password: ""});
     const [activeTab, setActiveTab] = useState<number>(0);
 
+    const {language} = useContext(MenuContext)
+
+    const {monkeys, addMonkey} = useMonkey()
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setUser({ ...user, [e.target.name]: e.target.value });
+        setUser({...user, [e.target.name]: e.target.value});
     };
 
     const handleSubmit = (e: React.FormEvent, role: string) => {
         e.preventDefault();
         console.log(`Logging in as ${role}:`, user);
     };
+
+    const handleAdd = useCallback(() => {
+        addMonkey({
+            name: "new one",
+            age: 100,
+            gender: 'female'
+        })
+    }, [])
 
     return (
         <motion.div
@@ -30,10 +41,10 @@ const Login: React.FC = () => {
             animate={{opacity: 1, y: 0}}
             transition={{duration: 0.5}}
         >
-            <Card className="login-card" >
+            <Card className="login-card">
                 <h2 className="login-title">Welcome to the Monkey Shop</h2>
 
-                <TabView  activeIndex={activeTab} onTabChange={(e) => setActiveTab(e.index)}>
+                <TabView activeIndex={activeTab} onTabChange={(e) => setActiveTab(e.index)}>
                     {/* Human Login Tab */}
                     <TabPanel header="Login as Human">
 
@@ -42,12 +53,19 @@ const Login: React.FC = () => {
                             animate={{opacity: 1, scale: 1}}
                             transition={{duration: 0.5}}
                         >
-                            <form onSubmit={(e) => handleSubmit(e, "Human")} >
-                                <div className="input-group"  >
+                            <h1>{language}</h1>
+                            <form onSubmit={(e) => handleSubmit(e, "Human")}>
+                                <div className="input-group">
                                     <label>Username:</label>
                                     <InputText name="username" value={user.username} onChange={handleChange}
                                                className="p-inputtext-lg"/>
                                 </div>
+
+                                {monkeys?.map(monkey => (
+                                    <MonkeyItem name={monkey.name} age={monkey.age} gender={monkey.gender}/>
+                                ))}
+                                <Button label={'Add Monkey'} onClick={handleAdd}/>
+
                                 <div className="input-group">
                                     <label>Password:</label>
                                     <InputText type="password" name="password" value={user.password}
@@ -85,7 +103,7 @@ const Login: React.FC = () => {
                 </TabView>
                 <div className="register-link">
 
-                    <a href="/Register" className="register-anchor">Create New Account</a>
+                    <a href="/register/Register" className="register-anchor">Create New Account</a>
 
                 </div>
             </Card>
